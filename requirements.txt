@@ -1,3 +1,5 @@
 websockets
 pydantic
 cryptography
+confluent-kafka
+tenacity
