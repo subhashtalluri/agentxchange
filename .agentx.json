@@ -1,0 +1,7 @@
+{
+  "name": "agent1",
+  "transport": "http",
+  "port": 8001,
+  "receiver": "agent2",
+  "message": "Hello from config!"
+}
