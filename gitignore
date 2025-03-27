@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# PyInstaller
+*.spec
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+*.tar.gz
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# PyCharm / VSCode
+.idea/
+.vscode/
+
+# Streamlit
+.streamlit/config.toml
+.streamlit/*.json
+
+# Local run files
+*.log
+*.sqlite
+*.db
+*.pem
+*.deleteme
+
+# AgentXchange CLI or test keys
+agent_private_key.pem
+agent_public_key.pem
+.agentx.json
+
+# Mac/Windows junk
+.DS_Store
+Thumbs.db

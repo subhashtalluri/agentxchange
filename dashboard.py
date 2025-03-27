@@ -1,6 +1,12 @@
 import streamlit as st
 import os
+import sys
+import subprocess
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
+
 from cryptography.hazmat.primitives import serialization
+
 from security import auth
 
 st.set_page_config(page_title="AgentXchange Dashboard", layout="centered")
@@ -22,6 +28,16 @@ sender = st.text_input("Sender", "agent1")
 receiver = st.text_input("Receiver", "agent2")
 message = st.text_area("Message Content", '{"text": "Hello from UI!"}')
 
+env = os.environ.copy()
+env["PYTHONPATH"] = os.path.abspath("src")
+
 if st.button("Simulate Send (CLI style)"):
-    os.system(f'python -m cli.main send --sender {sender} --receiver {receiver} --transport http --msg "{message}"')
+    subprocess.run([
+    "python", "src/cli/main.py",
+    "send",
+    "--sender", sender,
+    "--receiver", receiver,
+    "--transport", "http",
+    "--msg", message
+], env=env)
     st.success("Message sent (simulated via CLI)")
