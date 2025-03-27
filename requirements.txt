@@ -3,3 +3,4 @@ pydantic
 cryptography
 confluent-kafka
 tenacity
+typer[all]
