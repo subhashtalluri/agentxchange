@@ -17,14 +17,8 @@ class AgentMessage(BaseModel):
     receiver: str
     type: MessageType
     payload: Any
+    signature: Optional[str] = None
     version: str = "1.0"
 
 def handle_message(msg: AgentMessage):
-    if msg.type == MessageType.REQUEST:
-        print(f"Handling request from {msg.sender}")
-    elif msg.type == MessageType.RESPONSE:
-        print(f"Handling response from {msg.sender}")
-    elif msg.type == MessageType.EVENT:
-        print(f"Event received from {msg.sender}")
-    elif msg.type == MessageType.ERROR:
-        print(f"Error reported by {msg.sender}: {msg.payload}")
+    print(f"[{msg.type}] From {msg.sender} to {msg.receiver}: {msg.payload}")
