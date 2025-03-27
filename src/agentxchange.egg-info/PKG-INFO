@@ -1,0 +1,74 @@
+Metadata-Version: 2.4
+Name: agentxchange
+Version: 1.0.0
+Summary: Modular agent communication framework with multi-transport support
+Home-page: https://github.com/subhashtalluri/agentxchange
+Author: Subhash Talluri
+Author-email: youremail@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: websockets
+Requires-Dist: pydantic
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: httpx
+Requires-Dist: cryptography
+Requires-Dist: confluent-kafka
+Requires-Dist: tenacity
+Requires-Dist: typer[all]
+Requires-Dist: streamlit
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# AgentXchange
+
+**AgentXchange** is an open-source framework for standardized agent communication and data exchange.
+
+## Features
+- Modular transport abstraction (HTTP, WebSocket, Kafka, etc.)
+- Common agent messaging schema
+- Pluggable data exchange format
+- Agent registry for discovery
+
+## Getting Started
+```bash
+pip install -r requirements.txt
+python examples/simple_chat/agent1.py
+```
+
+## ðŸ”§ CLI Usage
+
+```bash
+# Generate keys
+python -m cli.main keygen
+
+# Start an agent
+python -m cli.main start --name agent2 --port 8002
+
+# Send a message
+python -m cli.main send --sender agent1 --receiver agent2 --transport http --msg "Hello"
+```
+
+## ðŸ“‚ Example Agent Config (.agentx.json)
+
+```json
+{
+  "name": "agent1",
+  "transport": "http",
+  "port": 8001,
+  "receiver": "agent2",
+  "message": "Hello from config!"
+}
+```

@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+src/agentxchange.egg-info/PKG-INFO
+src/agentxchange.egg-info/SOURCES.txt
+src/agentxchange.egg-info/dependency_links.txt
+src/agentxchange.egg-info/entry_points.txt
+src/agentxchange.egg-info/requires.txt
+src/agentxchange.egg-info/top_level.txt
+tests/test_agent_message.py

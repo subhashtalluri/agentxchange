@@ -1,0 +1,10 @@
+websockets
+pydantic
+fastapi
+uvicorn
+httpx
+cryptography
+confluent-kafka
+tenacity
+typer[all]
+streamlit

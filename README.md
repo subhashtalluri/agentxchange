@@ -1,17 +1,46 @@
 # AgentXchange
 
-**AgentXchange** is an open-source framework for standardized agent communication and data exchange.
+**AgentXchange** is a modular, open-source agent communication framework that supports secure, interoperable messaging between AI and software agents over multiple transports (HTTP, WebSocket, Kafka).
 
-## Features
-- Modular transport abstraction (HTTP, WebSocket, Kafka, etc.)
-- Common agent messaging schema
-- Pluggable data exchange format
-- Agent registry for discovery
+Designed for modern multi-agent architectures, LLM-based systems, IoT coordination, and autonomous agent research.
 
-## Getting Started
+---
+
+## 🔧 Features
+
+- 🔁 **Multi-transport** support: HTTP, WebSocket, Kafka (pluggable)
+- 🔐 **Message signing & verification** with Ed25519
+- 📜 **JSON-based protocol schema** with standard message types
+- 📡 **Agent registry & discovery** layer
+- ⚙️ **CLI Tool** to manage agents, send messages, and test flows
+- 🖥️ **Web Dashboard** built in Streamlit
+- 🧪 **Test suite + GitHub Actions CI**
+
+---
+
+## 💡 Use Cases
+
+- LLM tool-agent systems (Autogen, LangChain-style)
+- IoT sensor/actuator coordination
+- Swarm intelligence and multi-agent simulations
+- Autonomous drones/robots communication layer
+- Research in agent protocols and standardization
+
+---
+
+## 🚀 Getting Started
+
 ```bash
-pip install -r requirements.txt
-python examples/simple_chat/agent1.py
+pip install agentxchange
+
+# Generate keys
+agentx keygen
+
+# Start an agent
+agentx start --name agent2 --port 8002
+
+# Send a message
+agentx send --sender agent1 --receiver agent2 --msg "Hello"
 ```
 
 ## 🔧 CLI Usage
