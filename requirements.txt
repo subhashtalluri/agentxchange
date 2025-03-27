@@ -4,3 +4,4 @@ cryptography
 confluent-kafka
 tenacity
 typer[all]
+streamlit
