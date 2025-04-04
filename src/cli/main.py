@@ -1,5 +1,5 @@
 import typer
-from security import auth
+from agent_security import auth
 
 app = typer.Typer()
 
@@ -22,7 +22,7 @@ def send(sender: str, receiver: str, transport: str, msg: str):
     from agent import Agent
     from core.protocol import MessageType
     from transports.http import HTTPTransport
-    from security import auth
+    from agent_security import auth
     from cryptography.hazmat.primitives import serialization
 
     with open("agent_private_key.pem", "rb") as f:
@@ -33,14 +33,21 @@ def send(sender: str, receiver: str, transport: str, msg: str):
     asyncio.run(agent.send(receiver, MessageType.REQUEST, {"text": msg}))
     print("📨 Message sent.")
 
-@app.command()
-def start(name: str, transport: str = "http", port: int = 8001):
-    """Start an agent server."""
+@app.command("start")
+def start(
+    name: str = typer.Option(..., "--name", "-n", help="Name of the agent"),
+    port: int = typer.Option(..., "--port", "-p", help="Port to run the agent on")
+):
+    """
+    Start an AgentXchange agent with the given name and port.
+    """
+    typer.echo(f"🚀 Starting agent '{name}' on port {port}...")
+
     import asyncio
     from agent import Agent
     from core.protocol import handle_message
     from transports.http import HTTPTransport
-    from security import auth
+    from agent_security import auth
     from cryptography.hazmat.primitives import serialization
 
     with open("agent_private_key.pem", "rb") as f:
@@ -52,6 +59,7 @@ def start(name: str, transport: str = "http", port: int = 8001):
     agent = Agent(name, transport_obj, private_key=private_key)
     print(f"🚀 Agent '{name}' starting on port {port}...")
     asyncio.run(agent.start_server(handle_message))
+    typer.echo(f"🚀 Starting agent '{name}' on port {port}...")
 
 if __name__ == "__main__":
     app()

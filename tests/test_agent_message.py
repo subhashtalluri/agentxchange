@@ -1,5 +1,5 @@
 from core.protocol import AgentMessage, MessageType
-from security import auth
+from agent_security import auth
 import json
 
 def test_signature_verification():

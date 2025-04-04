@@ -1,5 +1,5 @@
 from core.protocol import AgentMessage
-from security import auth
+from agent_security import auth
 import asyncio
 import json
 

@@ -5,3 +5,6 @@ confluent-kafka
 tenacity
 typer[all]
 streamlit
+fastapi
+httpx
+uvicorn
